@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
+
+  <!ENTITY firstname "<firstname>Vincenzo</firstname>">
+  <!ENTITY surname   "<surname>Mantova</surname>">
+  <!ENTITY date      "<date>march 05, 2011</date>">
+  <!ENTITY section   "<manvolnum>8</manvolnum>">
+  <!ENTITY email     "<email>xworld21@users.sourceforge.net</email>">
+  <!ENTITY username  "Vincenzo Mantova">
+  <!ENTITY ucpackage "<refentrytitle>PAM_SASL</refentrytitle>">
+  <!ENTITY manual    "<refmiscinfo class='source'>PAM_SASL</refmiscinfo>">
+  <!ENTITY package   "pam_sasl">
+
+  <!ENTITY gnu         "<acronym>GNU</acronym>">
+  <!ENTITY gpl         "&gnu; <acronym>GPL</acronym>">
+]>
+
+<refentry>
+
+  <refentryinfo>
+    <address>
+      &email;
+    </address>
+    <author>
+      &firstname;
+      &surname;
+    </author>
+    <copyright>
+      <year>2007-2011</year>
+      <holder>&username;</holder>
+    </copyright>
+    &date;
+  </refentryinfo>
+  <refmeta>
+    &ucpackage;
+    &section;
+    &manual;
+  </refmeta>
+  <refnamediv>
+    <refname>&package;</refname>
+
+    <refpurpose>PAM module for SASL password authentication</refpurpose>
+  </refnamediv>
+  
+  <refsynopsisdiv>
+    <cmdsynopsis>
+      <command>&package;</command>
+
+      <arg>auth	required pam_sasl.so <option>...</option></arg>
+
+    </cmdsynopsis>
+  </refsynopsisdiv>
+  
+  <refsect1>
+    <title>DESCRIPTION</title>
+
+    <para>This is a PAM module that verifies the credentials using the SASL library.</para>
+
+  </refsect1>
+  
+  <refsect1>
+    <title>OPTIONS</title>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <option>service=<replaceable>service</replaceable></option>
+        </term>
+        <listitem>
+          <para>
+            Pass the service name <replaceable>service</replaceable> to
+            the SASL library. If not specified, the name "sasl-service"
+            is used, where "service" is the name of the PAM service
+            calling this module.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <option>realm=<replaceable>realm</replaceable></option>
+        </term>
+        <listitem>
+          <para>
+            Pass the realm <replaceable>realm</replaceable> to the SASL
+            library. If not specified, no realm will be used.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <option>debug</option>
+        </term>
+        <listitem>
+          <para>
+	        Turns on debugging via
+            <citerefentry>
+              <refentrytitle>syslog</refentrytitle><manvolnum>3</manvolnum>
+            </citerefentry>.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>
+          <option>try_first_pass</option>
+        </term>
+        <listitem>
+          <para>
+            Before prompting the user for their password, the module first
+            tries the previous stacked module's password in case that
+            satisfies this module as well.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <option>use_first_pass</option>
+        </term>
+        <listitem>
+          <para>
+            The argument <option>use_first_pass</option> forces the module
+            to use a previous stacked modules password and will never prompt
+            the user - if no password is available or the password is not
+            appropriate, the user will be denied access.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <option>use_authtok</option>
+        </term>
+        <listitem>
+          <para>
+            When password changing enforce the module to set the new
+            password to the one provided by a previously stacked
+            <option>password</option> module.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+  
+  <refsect1>
+    <title>SEE ALSO</title>
+
+    <para>
+      <citerefentry>
+	    <refentrytitle>sasl_checkpass</refentrytitle><manvolnum>3</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+	    <refentrytitle>sasl_server_new</refentrytitle><manvolnum>3</manvolnum>
+      </citerefentry>
+    </para>
+    <para>
+      <citerefentry>
+	    <refentrytitle>pam.conf</refentrytitle><manvolnum>5</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+	    <refentrytitle>pam.d</refentrytitle><manvolnum>5</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+	    <refentrytitle>pam</refentrytitle><manvolnum>8</manvolnum>
+      </citerefentry>
+    </para>
+
+  </refsect1>
+  
+</refentry>
+

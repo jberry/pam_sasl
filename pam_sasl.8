@@ -1,0 +1,95 @@
+'\" t
+.\"     Title: PAM_SASL
+.\"    Author: Vincenzo Mantova
+.\" Generator: DocBook XSL Stylesheets v1.78.1 <http://docbook.sf.net/>
+.\"      Date: march 05, 2011
+.\"    Manual: PAM_SASL
+.\"    Source: PAM_SASL
+.\"  Language: English
+.\"
+.TH "PAM_SASL" "8" "march 05, 2011" "PAM_SASL" "PAM_SASL"
+.\" -----------------------------------------------------------------
+.\" * Define some portability stuff
+.\" -----------------------------------------------------------------
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" http://bugs.debian.org/507673
+.\" http://lists.gnu.org/archive/html/groff/2009-02/msg00013.html
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.\" -----------------------------------------------------------------
+.\" * set default formatting
+.\" -----------------------------------------------------------------
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.\" -----------------------------------------------------------------
+.\" * MAIN CONTENT STARTS HERE *
+.\" -----------------------------------------------------------------
+.SH "NAME"
+pam_sasl \- PAM module for SASL password authentication
+.SH "SYNOPSIS"
+.HP \w'\fBpam_sasl\fR\ 'u
+\fBpam_sasl\fR [auth\ required\ pam_sasl\&.so\ \fB\&.\&.\&.\fR]
+.SH "DESCRIPTION"
+.PP
+This is a PAM module that verifies the credentials using the SASL library\&.
+.SH "OPTIONS"
+.PP
+\fBservice=\fR\fB\fIservice\fR\fR
+.RS 4
+Pass the service name
+\fIservice\fR
+to the SASL library\&. If not specified, the name "sasl\-service" is used, where "service" is the name of the PAM service calling this module\&.
+.RE
+.PP
+\fBrealm=\fR\fB\fIrealm\fR\fR
+.RS 4
+Pass the realm
+\fIrealm\fR
+to the SASL library\&. If not specified, no realm will be used\&.
+.RE
+.PP
+\fBdebug\fR
+.RS 4
+Turns on debugging via
+\fBsyslog\fR(3)\&.
+.RE
+.PP
+\fBtry_first_pass\fR
+.RS 4
+Before prompting the user for their password, the module first tries the previous stacked module\*(Aqs password in case that satisfies this module as well\&.
+.RE
+.PP
+\fBuse_first_pass\fR
+.RS 4
+The argument
+\fBuse_first_pass\fR
+forces the module to use a previous stacked modules password and will never prompt the user \- if no password is available or the password is not appropriate, the user will be denied access\&.
+.RE
+.PP
+\fBuse_authtok\fR
+.RS 4
+When password changing enforce the module to set the new password to the one provided by a previously stacked
+\fBpassword\fR
+module\&.
+.RE
+.SH "SEE ALSO"
+.PP
+\fBsasl_checkpass\fR(3),
+\fBsasl_server_new\fR(3)
+.PP
+\fBpam.conf\fR(5),
+\fBpam.d\fR(5),
+\fBpam\fR(8)
+.SH "AUTHOR"
+.PP
+\fBVincenzo Mantova\fR
+.RS 4
+Author.
+.RE
+.SH "COPYRIGHT"
+.br
+Copyright \(co 2007-2011 Vincenzo Mantova
+.br
