@@ -1,0 +1,26 @@
+2011-03-11 18:24 +0100  Vincenzo Mantova  <xworld21@users.sf.net>  (5e137a9a933e)
+
+	* Makefile.am, configure.ac:
+	The Makefile has been corrected to include the man page in the
+	distribution package.
+
+2011-03-11 17:19 +0100  Vincenzo Mantova  <xworld21@users.sf.net>  (c8e3c18b29d4 [0.1.1])
+
+	* configure.ac, src/pam_sasl.8.xml:
+	The man page has been corrected to reflect the new defaults.
+
+2011-03-11 17:00 +0100  Vincenzo Mantova  <xworld21@users.sf.net>  (6d1c2832a947)
+
+	* release version 0.1
+
+	* Cleanup. autoconf should be run only when creating a
+	distribution package.
+	* Makefile.am:
+	The new Makefile is non-recursive. The installation behaviour has
+	been corrected (no ".la" files).
+	* pam_sasl.c:
+	The option "checkuid" has been removed. The new default service name
+	is "sasl-service". Log strings are managed better. NULL is no more
+	assumed to be zero.
+	* pam_sasl.8.xml, Make.xml.rules:
+	First version of the man page.
